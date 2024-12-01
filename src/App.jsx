@@ -10,6 +10,7 @@ import { useEffect } from 'react'
 import { jwtDecode } from 'jwt-decode'
 import { adminLoginSuccess, logout } from './Redux/Actions/AuthActions'
 import AllDoctors from './pages/AllDoctors/AllDoctors'
+import Appointments from './pages/Appointments/Appointments'
 
 function App() {
   // let token = localStorage.getItem('aToken')
@@ -48,6 +49,7 @@ function App() {
               <Routes>
                 <Route path={'/adddoctor'} element={<AddDoctor />} />
                 <Route path={'/alldoctors'} element={<AllDoctors />} />
+                <Route path={'/appointments'} element={<Appointments />} />
               </Routes>
             </Box></>)
            :
