@@ -1,4 +1,4 @@
-import { Box, Button, MenuItem, Select, TextField, Typography } from '@mui/material'
+import { Box, Button, MenuItem, Select, TextField, Typography, useMediaQuery } from '@mui/material'
 import axios from 'axios';
 import React, { useState } from 'react'
 import { color } from '../../utils/utils';
@@ -71,10 +71,16 @@ const AddDoctor = () => {
         }
     }
 
+    // ----screen size----
+    const isLargerThan1100= useMediaQuery('(min-width: 1100px)');
+    const isLargerThan900= useMediaQuery('(min-width: 900px)');
+    const isLargerThan500= useMediaQuery('(min-width: 500px)');
+    const isLargerThan600= useMediaQuery('(min-width: 600px)');
+
     return (
-        <Box width={'100%'} pl={'1.4rem'} mt={'1.7rem'}>
+        <Box width={'100%'} pl={isLargerThan600?'1.4rem': '0.5rem'} mt={isLargerThan600?'1.7rem': '0.7rem'}>
             <Typography fontSize={'1.1rem'} >Add Doctor</Typography>
-            <Box component={'form'} onSubmit={handleSubmit} width={'70%'} height={'81vh'}border={'1px solid lightgrey'} borderRadius={'6px'} overflow={'auto'} p={'1.4rem'} mt={'1rem'}>
+            <Box component={'form'} width={isLargerThan1100?'70%': '98%'} height={'81vh'} onSubmit={handleSubmit} border={'1px solid lightgrey'} borderRadius={'6px'} overflow={'auto'} p={isLargerThan500?'1.4rem': '0.7rem'} mt={'1rem'}>
 
                 <Box display={'flex'} alignItems={'center'} mb={'1rem'}>
                     {/* <input onChange={(e) => setProfile(e.target.files[0])} type="file" /> */}
@@ -83,14 +89,14 @@ const AddDoctor = () => {
                         <input onChange={handleFileChange} type="file" style={{ backgroundColor: 'red', height: '100%', width: '100%', opacity: '0%', position: 'absolute' }}  />
                         <img style={{ width: '100%'}}  src={previewImg} alt=""  />
                     </Box>
-                    <Typography ml={'1rem'}>Upload doctor profile</Typography>
+                    <Typography ml={'1rem'} fontSize={isLargerThan500?'1rem': '0.9rem'}>Upload doctor profile</Typography>
                 </Box>
 
-                <Box display={'flex'} width={'100%'} justifyContent={'space-between'}>
+                <Box display={'flex'} flexDirection={isLargerThan500?'row': 'column'} width={'100%'} justifyContent={'space-between'}>
                     {/* -------Form left----------- */}
-                    <Box display={'flex'} flexDirection={'column'} width={'47%'} >
+                    <Box display={'flex'} flexDirection={'column'} width={isLargerThan500?'47%': '100%'} >
                         <Box width={'100%'} mb={'1rem'} >
-                            <Typography mb={'0.2rem'} color='grey'>Your Name</Typography>
+                            <Typography mb={'0.2rem'} color='grey' fontSize={isLargerThan500? '1rem': '0.9rem'}>Your Name</Typography>
                             <TextField
                                 id="demo-helper-text-misaligned"
                                 name="name"
@@ -104,7 +110,7 @@ const AddDoctor = () => {
                         </Box>
 
                         <Box width={'100%'} mb={'1rem'} >
-                            <Typography mb={'0.2rem'} color='grey'>Doctor Email</Typography>
+                            <Typography mb={'0.2rem'} color='grey' fontSize={isLargerThan500? '1rem': '0.9rem'}>Doctor Email</Typography>
                             <TextField
                                 id="demo-helper-text-misaligned"
                                 name="email"
@@ -119,7 +125,7 @@ const AddDoctor = () => {
                         </Box>
 
                         <Box width={'100%'} mb={'1rem'} >
-                            <Typography mb={'0.2rem'} color='grey'>Set Password</Typography>
+                            <Typography mb={'0.2rem'} color='grey' fontSize={isLargerThan500? '1rem': '0.9rem'}>Set Password</Typography>
                             <TextField
                                 id="demo-helper-text-misaligned"
                                 name="password"
@@ -134,7 +140,7 @@ const AddDoctor = () => {
                         </Box>
 
                         <Box width={'100%'} mb={'1rem'} >
-                            <Typography mb={'0.2rem'} color='grey'>Experience</Typography>
+                            <Typography mb={'0.2rem'} color='grey' fontSize={isLargerThan500? '1rem': '0.9rem'}>Experience</Typography>
                             <Select
                                 defaultValue={1}
                                 name="experience"
@@ -154,7 +160,7 @@ const AddDoctor = () => {
                         </Box>
 
                         <Box width={'100%'} mb={'1rem'} >
-                            <Typography mb={'0.2rem'} color='grey'>Fees</Typography>
+                            <Typography mb={'0.2rem'} color='grey' fontSize={isLargerThan500? '1rem': '0.9rem'}>Fees</Typography>
                             <TextField
                                 id="demo-helper-text-misaligned"
                                 name="fees"
@@ -170,9 +176,9 @@ const AddDoctor = () => {
                     </Box>
 
                     {/* ------right form------ */}
-                    <Box width={'49%'} display={'flex'} flexDirection={'column'}>
+                    <Box width={isLargerThan500?'49%': '100%'} display={'flex'} flexDirection={'column'}>
                         <Box width={'100%'} mb={'1rem'} >
-                            <Typography mb={'0.2rem'} color='grey'>Speciality</Typography>
+                            <Typography mb={'0.2rem'} color='grey' fontSize={isLargerThan500? '1rem': '0.9rem'}>Speciality</Typography>
                             <Select
                                 defaultValue={'General physician'}
                                 name='speciality'
@@ -193,7 +199,7 @@ const AddDoctor = () => {
                         </Box>
 
                         <Box width={'100%'} mb={'1rem'} >
-                            <Typography mb={'0.2rem'} color='grey'>Address</Typography>
+                            <Typography mb={'0.2rem'} color='grey' fontSize={isLargerThan500? '1rem': '0.9rem'}>Address</Typography>
                             <TextField
                                 id="demo-helper-text-misaligned"
                                 name='address'
@@ -210,7 +216,7 @@ const AddDoctor = () => {
                 </Box>
 
                 <Box width={'100%'} mt={'1rem'}>
-                    <Typography mb={'0.2rem'} color='grey'>About Doctor</Typography>
+                    <Typography mb={'0.2rem'} color='grey' fontSize={isLargerThan500? '1rem': '0.9rem'}>About Doctor</Typography>
                     {/* <TextField
                                 id="demo-helper-text-misaligned"
                                 placeholder='Doctor Fees'
@@ -230,7 +236,7 @@ const AddDoctor = () => {
                         required
                     />
                 </Box>
-                <Button type='submit' variant='contained' sx={{ borderRadius: '22px', p: '0.7rem 3.5rem', mt: '1.7rem', mb: '1rem' }}>Add Doctor</Button>
+                <Button type='submit' variant='contained' sx={{ width: isLargerThan500?'50%': '100%', borderRadius: '22px', p: isLargerThan500?'0.7rem 3.5rem': '0.5rem 3.5rem', mt: '1.6rem', mb: '1rem' }}>Add Doctor</Button>
 
             </Box>
 

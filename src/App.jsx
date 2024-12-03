@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import { Box, useMediaQuery } from '@mui/material'
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
 import Sidebar from './components/Sidebar/Sidebar'
@@ -11,6 +11,7 @@ import { jwtDecode } from 'jwt-decode'
 import { adminLoginSuccess, logout } from './Redux/Actions/AuthActions'
 import AllDoctors from './pages/AllDoctors/AllDoctors'
 import Appointments from './pages/Appointments/Appointments'
+import { color } from './utils/utils'
 
 function App() {
   // let token = localStorage.getItem('aToken')
@@ -37,6 +38,9 @@ function App() {
    
   }, [])
 
+  const isLargerThan600 = useMediaQuery('(min-width: 600px)');
+
+
   return (
     <Box>
       {
@@ -44,8 +48,11 @@ function App() {
           
             (<><Navbar />
 
-            <Box display={'flex'}>
-              <Sidebar />
+            <Box display={'flex'} bgcolor={color.background}>
+              {
+                isLargerThan600 && <Sidebar />
+              }
+              
               <Routes>
                 <Route path={'/adddoctor'} element={<AddDoctor />} />
                 <Route path={'/alldoctors'} element={<AllDoctors />} />

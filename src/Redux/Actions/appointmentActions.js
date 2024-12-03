@@ -47,3 +47,5 @@ export const cancelAppointment=(appointmentId)=> async(dispatch)=>{
         alert(error.message)
     }
 }
+
+// export const completedAppointment=()
