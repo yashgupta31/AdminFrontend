@@ -19,7 +19,7 @@ const AddDoctor = () => {
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
-    };
+    };  
 
     const handleFileChange=(e)=>{
         setProfile(e.target.files[0])
@@ -75,7 +75,7 @@ const AddDoctor = () => {
     const isLargerThan1100= useMediaQuery('(min-width: 1100px)');
     const isLargerThan900= useMediaQuery('(min-width: 900px)');
     const isLargerThan500= useMediaQuery('(min-width: 500px)');
-    const isLargerThan600= useMediaQuery('(min-width: 600px)');
+    const isLargerThan600= useMediaQuery('(min-width: 600px)');  
 
     return (
         <Box width={'100%'} pl={isLargerThan600?'1.4rem': '0.5rem'} mt={isLargerThan600?'1.7rem': '0.7rem'}>

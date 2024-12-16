@@ -73,11 +73,13 @@ const Appointments = () => {
               <TableCell align='left'>{index + 1}</TableCell>
               <TableCell align="left">
                 <Box display={'flex'} width={'100%'} height={'2rem'} alignItems={'center'}>
+                  <Box height={'2.3rem'} width={'2.3rem'} overflow={'hidden'} borderRadius={'50%'} display={'flex'} alignItems={'center'} justifyContent={'center'}>
                   <img
                     style={{ height: '100%' }}
-                    src="https://static-00.iconduck.com/assets.00/profile-circle-icon-512x512-zxne30hp.png"
+                    src={elem.patientId.image? `${elem.patientId.image}` : "https://static-00.iconduck.com/assets.00/profile-circle-icon-512x512-zxne30hp.png"}
                     alt=""
                   />
+                  </Box>
                   <Typography
                     ml={'1rem'}
                     sx={{
@@ -96,7 +98,7 @@ const Appointments = () => {
                 <Box display={'flex'} width={'100%'} height={'2rem'} alignItems={'center'}>
                   <img
                     style={{ height: '100%' }}
-                    src={`${BACKEND_URL}${elem.doctorId.image}`}
+                    src={elem.doctorId.image}
                     alt=""
                   />
                   <Typography
@@ -113,17 +115,19 @@ const Appointments = () => {
               </TableCell>
               <TableCell align="left">{elem.fees}$</TableCell>
               <TableCell align="center">
-                {(elem.status === 'Confirmed' || elem.status === 'Completed' || elem.status === 'Cancelled') ? (
+                {(elem.status === 'Confirmed' || elem.status === 'Completed' || elem.status === 'Cancelled' || elem.status == 'Expired') ? (
                   <Typography
                     bgcolor={
                       (elem.status === 'Confirmed' && '#c8e6c9') ||
                       (elem.status === 'Cancelled' && '#ffebee') ||
-                      (elem.status === 'Completed' && '#90caf9')
+                      (elem.status === 'Completed' && '#90caf9') ||
+                      (elem.status === 'Expired' && '#C7C7C7')
                     }
                     color={
-                      (elem.status === 'Confirmed' && 'green') ||
+                      (elem.status === 'Confirmed' && '#026108') ||
                       (elem.status === 'Cancelled' && '#f44336') ||
-                      (elem.status === 'Completed' && '#0d47a1')
+                      (elem.status === 'Completed' && '#0d47a1') ||
+                      (elem.status === 'Expired' && '#282828')
                     }
                     borderRadius={'5px'}
                     fontSize={'0.9rem'}
@@ -132,12 +136,12 @@ const Appointments = () => {
                     {elem.status}
                   </Typography>
                 ) : (
-                  <Box display={'flex'}>
+                  <Box display={'flex'} justifyContent={'space-evenly'}>
                     <IconButton>
-                      <RxCross1 onClick={() => handleCancel(elem._id)} style={{ color: 'red' }} />
+                      <RxCross1 onClick={() => handleCancel(elem._id)} style={{ color: '#FF2828' }} />
                     </IconButton>
                     <IconButton>
-                      <MdDone onClick={() => handleConfirm(elem._id)} style={{ color: 'green' }} />
+                      <MdDone onClick={() => handleConfirm(elem._id)} style={{ color: '#01AA39' }} />
                     </IconButton>
                   </Box>
                 )}

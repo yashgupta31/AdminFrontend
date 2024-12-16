@@ -32,7 +32,7 @@ const Navbar = () => {
     <Box height={'4rem'} display={'flex'} alignItems={'center'} justifyContent={'space-between'} p={isLargerThan600? '0rem 2rem': '0rem 1rem'} borderBottom={'1px solid lightgrey'}>
       <Box width={'14rem'} display={'flex'} alignItems={'center'}>
         <Box onClick={()=> navigate('/')} display={'flex'} flexDirection={'column'} mr={isLargerThan600?'0.5rem': '0.3rem'}>
-          <Typography fontSize={isLargerThan600?'1.6rem': '1.2rem'} mb={'-0.4rem'}>Doctor<span style={{ color: color.primary }}>Now</span></Typography>
+          <Typography fontSize={isLargerThan600?'1.6rem': '1.2rem'} mb={'-0.4rem'}>Doc<span style={{ color: color.primary }}>mate</span></Typography>
           <Typography fontSize={isLargerThan600?'10px': '9px'}>Dashboard Pannel</Typography>
         </Box>
         <Typography bgcolor={'white'} borderRadius={'12px'} p={isLargerThan600?'0.1rem 0.7rem': '0.1rem 0.6rem'} fontSize={isLargerThan600?'12px': '9px'} border={'0.6px solid #282828'}>Admin</Typography>
@@ -52,7 +52,7 @@ const Navbar = () => {
       <Box display={'flex'} justifyContent={'space-between'} p={'0.5rem 1rem'}>
       <Box width={'14rem'} display={'flex'} alignItems={'center'}>
         <Box onClick={()=> {navigate('/'), setIsOpen(false)}}  display={'flex'} flexDirection={'column'} mr={'0.3rem'}>
-          <Typography fontSize={'1.2rem'} mb={'-0.4rem'}>Doctor<span style={{ color: color.primary }}>Now</span></Typography>
+          <Typography fontSize={'1.2rem'} mb={'-0.4rem'}>Doc<span style={{ color: color.primary }}>Mate</span></Typography>
           <Typography fontSize={'9px'}>Dashboard Pannel</Typography>
         </Box>
         <Typography bgcolor={'white'} borderRadius={'12px'} p={'0.1rem 0.6rem'} fontSize={'9px'} border={'0.6px solid grey'}>Admin</Typography>

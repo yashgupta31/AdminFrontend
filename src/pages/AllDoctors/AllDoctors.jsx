@@ -8,12 +8,12 @@ const BACKEND_URL= import.meta.env.VITE_BACKEND_URL;
 
 const AllDoctors = () => {
     const [doctorsArr, setDoctorArr]= useState([])
-
+    console.log(doctorsArr)
 
     useEffect(()=>{
        async function fetchDoctors(){
         const response= await axios.get('http://localhost:8080/doctor/getdoctors');
-        // console.log(response)
+        console.log(response.data)
         setDoctorArr(response.data.data)
         }
         fetchDoctors()
@@ -46,7 +46,7 @@ const AllDoctors = () => {
                 doctorsArr.map((elem, index)=>(
                     <Box key={index} minWidth={isLargerThan894?'16rem': '30%'} height={'20rem'} border={'1.5px solid #C9D8FF'} overflow={'hidden'} borderRadius={'9px'} ml={!isLargerThan1050 && 'auto'} mr={'auto'}  marginBottom={'1.5rem'} sx={{ "&:hover": { cursor: 'pointer'}}} >
                     <Box bgcolor={'#DCFDFD'} height={'70%'} display={'flex'} alignItems={'end'} justifyContent={'center'}  sx={{transition: '0.5s',  "&:hover": {bgcolor: color.primary, transition: '0.5s', cursor: 'pointer'}}}>
-                        <img src={`${BACKEND_URL}${elem.image}`} height={'100%'} alt="" />
+                        <img src={elem.image} height={'100%'} alt="" />
                     </Box>
 
                     <Box p={'0rem 1rem'} height={'29%'} display={'flex'} flexDirection={'column'} justifyContent={'center'}>
