@@ -1,5 +1,5 @@
 import {combineReducers, legacy_createStore, applyMiddleware} from 'redux'
-import authReducer from './Reducers/AuthReducer'
+import authReducer from './Reducers/authReducer'
 import { thunk } from 'redux-thunk'
 import appointmentReducer from './Reducers/appointmentReducer'
 
