@@ -1,5 +1,5 @@
 // import {ADMIN_LOGIN_REQUEST, ADMIN_LOGIN_SUCCESS, ADMIN_LOGIN_FAILURE} from './authReducer'
-import { ADMIN_LOGIN_REQUEST, ADMIN_LOGIN_SUCCESS, ADMIN_LOGIN_FAILURE, LOGOUT } from "../Actions/AuthActions";
+import { ADMIN_LOGIN_REQUEST, ADMIN_LOGIN_SUCCESS, ADMIN_LOGIN_FAILURE, LOGOUT } from "../Actions/authActions";
 
 const initialState={
     token: null, 

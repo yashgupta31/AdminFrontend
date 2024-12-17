@@ -2,7 +2,7 @@ import { Box, Button, IconButton, Typography, useMediaQuery } from '@mui/materia
 import React, { useState } from 'react'
 import { color } from '../../utils/utils'
 import { useDispatch } from 'react-redux'
-import { logout } from '../../Redux/Actions/AuthActions'
+import { logout } from '../../Redux/Actions/authActions'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { CiMenuFries } from 'react-icons/ci'
 import { RiAddBoxLine, RiHomeSmile2Line } from 'react-icons/ri'

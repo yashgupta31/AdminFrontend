@@ -3,7 +3,7 @@ import { Box, Button, TextField, Typography, useMediaQuery } from '@mui/material
 import React, { useEffect, useState } from 'react'
 import { color } from '../../utils/utils'
 import { useDispatch, useSelector } from 'react-redux'
-import { adminLoginSuccess, login } from '../../Redux/Actions/AuthActions'
+import { adminLoginSuccess, login } from '../../Redux/Actions/authActions'
 import { jwtDecode } from 'jwt-decode'
 import { useNavigate } from 'react-router-dom'
 
