@@ -12,7 +12,7 @@ const AllDoctors = () => {
 
     useEffect(()=>{
        async function fetchDoctors(){
-        const response= await axios.get('http://localhost:8080/doctor/getdoctors');
+        const response= await axios.get(`${BACKEND_URL}/doctor/getdoctors`);
         console.log(response.data)
         setDoctorArr(response.data.data)
         }
@@ -21,7 +21,7 @@ const AllDoctors = () => {
 
     const handleAvailability= async(isAvailable, id)=>{
         try {
-            const response= await axios.patch(`http://localhost:8080/doctor/update/${id}`, isAvailable);
+            const response= await axios.patch(`${BACKEND_URL}/doctor/update/${id}`, isAvailable);
             console.log(response)
             setDoctorArr(response.data.data)
         // alert(response.data.message);

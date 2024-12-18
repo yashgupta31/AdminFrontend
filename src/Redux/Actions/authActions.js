@@ -3,7 +3,8 @@ import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// import jwt_decode from 'jwt-decode'
+const BACKEND_URL= import.meta.env.VITE_BACKEND_URL;
+
 export const ADMIN_LOGIN_REQUEST= 'ADMIN_LOGIN_REQUEST';
 export const ADMIN_LOGIN_SUCCESS= 'ADMIN_LOGIN_SUCCESS';
 export const ADMIN_LOGIN_FAILURE= 'ADMIN_LOGIN_FAILURE';
@@ -19,7 +20,7 @@ export const adminLoginSuccess=(token, userData)=>({type: ADMIN_LOGIN_SUCCESS, p
 export const login=(email, password, navigate)=> async(dispatch)=>{
     
     try {
-        const response= await axios.post('http://localhost:8080/user/login', {email, password, role: 'admin'});
+        const response= await axios.post(`${BACKEND_URL}/user/login`, {email, password, role: 'admin'});
         const token= response.data.token;
         localStorage.setItem('aToken', token)
 

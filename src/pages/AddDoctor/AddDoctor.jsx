@@ -2,6 +2,7 @@ import { Box, Button, MenuItem, Select, TextField, Typography, useMediaQuery } f
 import axios from 'axios';
 import React, { useState } from 'react'
 import { color } from '../../utils/utils';
+const BACKEND_URL= import.meta.env.VITE_BACKEND_URL;
 
 const AddDoctor = () => {
     const [form, setForm] = useState({
@@ -49,7 +50,7 @@ const AddDoctor = () => {
         formData.append("image", profile);
 
         try {
-            const response = await axios.post('http://localhost:8080/doctor/add', formData);
+            const response = await axios.post(`${BACKEND_URL}/doctor/add`, formData);
             // console.log(response)
             alert('Doctor Added successfully')
             setForm({
