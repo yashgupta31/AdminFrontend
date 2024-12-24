@@ -87,7 +87,7 @@ const AddDoctor = () => {
                     {/* <input onChange={(e) => setProfile(e.target.files[0])} type="file" /> */}
                     <Box bgcolor={color.primary} borderRadius={'50%'} height={'3rem'} width={'3rem'} position={'relative'} overflow={'hidden'} display={'flex'} justifyContent={'center'} alignItems={'center'} >
 
-                        <input onChange={handleFileChange} type="file" style={{ backgroundColor: 'red', height: '100%', width: '100%', opacity: '0%', position: 'absolute' }}  />
+                        <input onChange={handleFileChange} type="file" style={{ backgroundColor: 'red', height: '100%', width: '100%', opacity: '0%', position: 'absolute' }} required />
                         <img style={{ width: '100%'}}  src={previewImg} alt=""  />
                     </Box>
                     <Typography ml={'1rem'} fontSize={isLargerThan500?'1rem': '0.9rem'}>Upload doctor profile</Typography>

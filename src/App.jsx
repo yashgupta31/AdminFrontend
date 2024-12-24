@@ -12,6 +12,7 @@ import { adminLoginSuccess, logout } from './Redux/Actions/authActions'
 import AllDoctors from './pages/AllDoctors/AllDoctors'
 import Appointments from './pages/Appointments/Appointments'
 import { color } from './utils/utils'
+import Dashboard from './pages/Dashboard/Dashboard'
 
 function App() {
   // let token = localStorage.getItem('aToken')
@@ -54,6 +55,8 @@ function App() {
               }
               
               <Routes>
+              <Route path={'/'} element={<Dashboard />} />
+                <Route path={'/dashboard'} element={<Dashboard />} />
                 <Route path={'/adddoctor'} element={<AddDoctor />} />
                 <Route path={'/alldoctors'} element={<AllDoctors />} />
                 <Route path={'/appointments'} element={<Appointments />} />

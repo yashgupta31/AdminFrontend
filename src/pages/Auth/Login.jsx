@@ -21,6 +21,7 @@ const Login = () => {
   }
 
   const isLargerThan400= useMediaQuery('(min-width: 400px)');
+
   return (
     <Box height={'100vh'} display={'flex'} alignItems={'center'} justifyContent={'center'}>
     <Box component={'form'} onSubmit={handleSubmit} width={isLargerThan400 ?'23rem': '92%'} height={isLargerThan400? '20rem': '17rem'} p={'1.5rem'} borderRadius={'9px'} display={'flex'} flexDirection={'column'} justifyContent={'space-between'} alignItems={'start'} boxShadow={'rgba(0, 0, 0, 0.1) 0px 4px 12px'}  border={`1px solid ${color.border}`}>

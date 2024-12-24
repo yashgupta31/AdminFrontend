@@ -1,4 +1,4 @@
-import { Box, Button, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, useMediaQuery } from '@mui/material'
+import { Box, Button, IconButton, Paper, Skeleton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, useMediaQuery } from '@mui/material'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { MdDone } from 'react-icons/md';
@@ -10,8 +10,8 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 const Appointments = () => {
   // const [allAppointments, setAllAppointments] = useState([])
   const dispatch = useDispatch();
-  const { appointments } = useSelector((state) => state.appointments)
-  console.log(appointments)
+  const { appointments, loading } = useSelector((state) => state.appointments)
+  console.log(appointments, loading)
   // useEffect(() => {
   //   async function fetchAppointments() {
   //     try {
@@ -38,15 +38,23 @@ const Appointments = () => {
     dispatch(cancelAppointment(id))
   }
 
+  
 
   const isLargerThan600 = useMediaQuery('(min-width: 600px)');
   const isLargerThan1050 = useMediaQuery('(min-width: 1050px)');
+
+  // if(loading){
+  //   return <h2>loading...</h2>
+  // }
+
 
 
   return (
     <Box width={isLargerThan1050 ? '78%' : isLargerThan600 ? '84%' : '100%'} height={'90vh'} overflow={'scroll'} marginLeft={isLargerThan600 && '1.3rem'} mt={isLargerThan600 ? '1.5rem' : '0rem'} p={!isLargerThan600 && '1rem'}>
       <Typography fontSize={isLargerThan600 ? '1.3rem' : '1.1rem'} mb={isLargerThan600 ? '1.1rem' : '0.6rem'}>All Appointments</Typography>
-      <TableContainer component={Paper}>
+      {
+        appointments && 
+        <TableContainer component={Paper} >
   {/* Horizontally scrollable container */}
   <Box sx={{ overflowX: 'auto', width: '100%' }}>
     <Table stickyHeader aria-label="sticky table">
@@ -92,7 +100,7 @@ const Appointments = () => {
                   </Typography>
                 </Box>
               </TableCell>
-              <TableCell align="left">23</TableCell>
+              <TableCell align="left">{elem.patientId.DOB? new Date().getFullYear() - new Date(elem.patientId.DOB).getFullYear() : '-'}</TableCell>
               <TableCell align="left">{`${elem.date} / ${elem.time}`}</TableCell>
               <TableCell align="left">
                 <Box display={'flex'} width={'100%'} height={'2rem'} alignItems={'center'}>
@@ -153,6 +161,16 @@ const Appointments = () => {
     {/* </Box> */}
   </Box>
 </TableContainer>
+
+
+      }
+
+      {
+        loading && 
+        <Skeleton width={'100%'} height={'100vh'}></Skeleton>
+      }
+
+      
 
 
     </Box>

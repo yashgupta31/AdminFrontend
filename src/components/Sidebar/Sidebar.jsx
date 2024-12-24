@@ -15,7 +15,7 @@ const Sidebar = () => {
 
     const isLargerThan1050= useMediaQuery('(min-width: 1050px)')
     return (
-        <Box width={isLargerThan1050?'18rem': 'auto'}  bgcolor={'white'} height={'100vh'} borderRight={'1px solid lightgrey'}>
+        <Box width={isLargerThan1050?'18rem': 'auto'}  bgcolor={'white'} height={'92vh'} borderRight={'1px solid lightgrey'}>
         <Box width={'100%'} pt={'1.4rem'}>
         <Box sx={style1} onClick={()=> navigate('/dashboard')} bgcolor={path == 'dashboard' && '#F2F3FF'} borderRight={path == 'dashboard' && `3px solid ${color.primary}`} ><RiHomeSmile2Line style={{ marginRight: '1rem', fontSize: '1.6rem' }} />{isLargerThan1050 && <span>Dashboard</span>}</Box>
         <Box sx={style1} onClick={()=> navigate('/appointments')} bgcolor={path == 'appointments' && '#F2F3FF'}  borderRight={path == 'appointments' && `3px solid ${color.primary}`}><SlCalender style={{ marginRight: '1rem', fontSize: '1.6rem' }} />{isLargerThan1050 && <span>Appointments</span>}</Box>
