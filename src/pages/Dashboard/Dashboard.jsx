@@ -1,16 +1,13 @@
-import { Box, Button, MenuItem, Select, Table, TableHead, TableRow, Typography, useMediaQuery } from '@mui/material'
+import { Box, MenuItem, Select, Typography, useMediaQuery } from '@mui/material'
 // import { PieChart } from '@mui/x-charts'
 import React, { useEffect, useState } from 'react'
 import PieChartComponent from './PieChartComponent'
-import { IoIosCall } from 'react-icons/io'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAppointments, getTodaysAppointments } from '../../Redux/Actions/appointmentActions'
 import axios from 'axios'
-import { FaUser } from 'react-icons/fa'
 import { color } from '../../utils/utils'
-import doctorVector from '../../assets/Vector/doctor.png'
-import patientVector from '../../assets/Vector/patient.png'
-import availableDoctorVector from '../../assets/Vector/available-doctor.png'
+import TopContainer from './TopContainer'
+
 
 const BACKEND_URL= import.meta.env.VITE_BACKEND_URL;
 
@@ -56,7 +53,8 @@ const Dashboard = () => {
     return (
         <Box width={'100%'} height={'90vh'} sx={{overflowY: 'scroll'}} bgcolor={color.background} p={isLargerThan360?'1rem': '0.3rem'}>
             {/* ---------Top container-------- */}
-            <Box display={'flex'} flexWrap={'wrap'} gap={'0.5rem'} mb={'2rem'}>
+           <TopContainer />
+            {/* <Box display={'flex'} flexWrap={'wrap'} gap={'0.5rem'} mb={'2rem'}>
                 <Box width={isLargerThan900?'32%': isLargerThan650?'48%': '100%'} bgcolor={'white'} height={isLargerThan900?'8rem': '7rem'} p={'1rem'} display={'flex'} alignItems={'center'} borderRadius={'8px'} boxShadow={'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}>
                     <Box bgcolor={color.background} height={isLargerThan900?'6rem': '4rem'} width={isLargerThan900?'6rem': '4rem'} borderRadius={'50%'} overflow={'hidden'} display={'flex'} justifyContent={'center'} alignItems={'center'} p={'0.5rem'}>
                         <img src={doctorVector} alt="" style={{height: '80%'}} />
@@ -87,7 +85,7 @@ const Dashboard = () => {
                         <Typography fontSize={'0.9rem'}>For Today</Typography>
                     </Box>
                 </Box>
-            </Box>
+            </Box> */}
             {/* ----Bottom Container----- */}
 
             <Box display={'flex'} flexWrap={'wrap'}  justifyContent={'space-evenly'} alignItems={'start'} minHeight={'26rem'} gap={2}>

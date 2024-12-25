@@ -37,7 +37,7 @@ const PieChartComponent = ({overviewDuration}) => {
           'rgb(255, 99, 132)',
           '#282828'
         ],
-        hoverOffset: 4,
+        hoverOffset: 4, 
       },
     ],
   };

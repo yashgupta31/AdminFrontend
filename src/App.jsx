@@ -1,3 +1,4 @@
+import {lazy} from 'react'
 import { Box, useMediaQuery } from '@mui/material'
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
@@ -13,6 +14,7 @@ import AllDoctors from './pages/AllDoctors/AllDoctors'
 import Appointments from './pages/Appointments/Appointments'
 import { color } from './utils/utils'
 import Dashboard from './pages/Dashboard/Dashboard'
+// const Dashboard= lazy(()=> import('./pages/Dashboard/Dashboard'))
 
 function App() {
   // let token = localStorage.getItem('aToken')
